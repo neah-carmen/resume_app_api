@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_05_211931) do
+ActiveRecord::Schema.define(version: 2020_01_05_220354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_01_05_211931) do
     t.text "description"
     t.string "url"
     t.string "screenshot"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_01_05_211931) do
     t.string "degree"
     t.string "university_name"
     t.text "details"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_01_05_211931) do
     t.string "job_title"
     t.string "company_name"
     t.text "details"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
