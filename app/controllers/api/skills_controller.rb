@@ -1,6 +1,7 @@
 class Api::SkillsController < ApplicationController
   def index
-    render json: { message: "index action" }
+    @skills = Skill.all
+    render "index.json.jb"
   end
 
   def create
