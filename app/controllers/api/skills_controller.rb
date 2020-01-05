@@ -9,7 +9,8 @@ class Api::SkillsController < ApplicationController
   end
 
   def show
-    render json: { message: "show action" }
+    @skill = Skill.find_by(id: params[:id])
+    render "show.json.jb"
   end
 
   def update
