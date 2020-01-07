@@ -30,19 +30,25 @@ def show
 end
 
 def update
-  @user = User.find_by(id: params[:id])
-    @user.first_name = params[:first_name] || @user.first_name,
-    @user.last_name =  params[:last_name] || @user.last_name,
-    @user.email =  params[:email] || @user.email,
-    @user.password =  params[:password] || @user.password,
-    @user.phone_number = params[:phone_number] || @user.phone_number,
-    @user.bio =  params[:bio] || @user.bio,
-    @user.linkedin = params[:linkedin] || @user.linkedin,
-    @user.twitter = params[:twitter] || @user.twitter,
-    @user.website =  params[:website] || @user.website,
-    @user.resume =  params[:resume] || @user.resume,
-    @user.github =  params[:github] || @user.github,
+    @user = User.find_by(id: params[:id])
+
+    @user.first_name = params[:first_name] || @user.first_name
+    @user.last_name =  params[:last_name] || @user.last_name
+    @user.email =  params[:email] || @user.email
+    @user.password =  params[:password] || @user.password
+    @user.phone_number = params[:phone_number] || @user.phone_number
+    @user.bio =  params[:bio] || @user.bio
+    @user.linkedin = params[:linkedin] || @user.linkedin
+    @user.twitter = params[:twitter] || @user.twitter
+    @user.website =  params[:website] || @user.website
+    @user.resume =  params[:resume] || @user.resume
+    @user.github =  params[:github] || @user.github
     @user.photo = params[:photo] || @user.photo
+
+    @user.save
+
+    render "show.json.jb"
+
 end
 
 def destroy
