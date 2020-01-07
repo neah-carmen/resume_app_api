@@ -22,8 +22,11 @@ def create
     # user_id: current_user.id
     user_id: 1
     )
-  @user.save
-  render "show.json.jb"
+  if @user.save
+    render "show.json.jb"
+  else
+    render json: {errors: @user.errors.full_messages}, status: 422
+  end
 end
 
 def show
