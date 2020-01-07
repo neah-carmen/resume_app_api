@@ -19,8 +19,6 @@ def create
     resume: params[:resume],
     github: params[:github],
     photo: params[:photo]
-    # user_id: current_user.id
-    user_id: 1
     )
   if @user.save
     render "show.json.jb"
@@ -50,9 +48,11 @@ def update
     @user.github =  params[:github] || @user.github
     @user.photo = params[:photo] || @user.photo
 
-    @user.save
-
+    if @user.save
     render "show.json.jb"
+    else
+    render json: {errors: @user.errors.full_messages}, status: 422
+    end
 
 end
 
