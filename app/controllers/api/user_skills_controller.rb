@@ -9,6 +9,7 @@ class Api::UserSkillsController < ApplicationController
       user_id: params[:user_id],
       skill_id: params[:skill_id],
     )
+    @user_skill.save
     render "show.json.jb"
   end
 
@@ -21,6 +22,7 @@ class Api::UserSkillsController < ApplicationController
     @user_skill = UserSkill.find_by(id: params[:id])
     @user_skill.user_id = params[:user_id] || @user_skill.user_id
     @user_skill.skill_id = params[:skill_id] || @user_skill.skill_id
+    @user_skill.save
     render "show.json.jb"
   end
 
