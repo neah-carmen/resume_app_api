@@ -6,6 +6,7 @@ class Api::SkillsController < ApplicationController
 
   def create
     @skill = Skill.new(skill_name: params[:skill_name])
+    @skill.save
     render "show.json.jb"
   end
 
@@ -17,6 +18,7 @@ class Api::SkillsController < ApplicationController
   def update
     @skill = Skill.find_by(id: params[:id])
     @skill.skill_name = params[:skill_name] || @skill.skill_name
+    @skill.save
     render "show.json.jb"
   end
 
