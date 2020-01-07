@@ -43,6 +43,11 @@ def update
     @user.resume =  params[:resume] || @user.resume,
     @user.github =  params[:github] || @user.github,
     @user.photo = params[:photo] || @user.photo
+
+    @user.save
+
+    render "show.json.jb"
+
 end
 
 def destroy
