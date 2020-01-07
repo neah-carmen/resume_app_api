@@ -10,4 +10,10 @@ Rails.application.routes.draw do
   # This is a comment made by Dan
   # Diana's comment
   # ops, i forgot to make a pull request
+  namespace :api do
+    get "/experiences" => "experiences#index"
+    post "/experiences" => "experiences#create"
+    patch "/experiences/:id" => "experiences#update"
+    delete "/experiences/:id" => "experiences#destroy"
+  end
 end
