@@ -19,6 +19,8 @@ def create
     resume: params[:resume],
     github: params[:github],
     photo: params[:photo]
+    # user_id: current_user.id
+    user_id: 1
     )
   @user.save
   render "show.json.jb"
