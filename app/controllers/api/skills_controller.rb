@@ -5,7 +5,8 @@ class Api::SkillsController < ApplicationController
   end
 
   def create
-    render json: { message: "create action" }
+    @skill = Skill.new(skill_name: params[:skill_name])
+    render "show.json.jb"
   end
 
   def show
@@ -14,10 +15,14 @@ class Api::SkillsController < ApplicationController
   end
 
   def update
-    render json: { message: "update action" }
+    @skill = Skill.find_by(id: params[:id])
+    @skill.skill_name = params[:skill_name] || @skill.skill_name
+    render "show.json.jb"
   end
 
   def destroy
-    render json: { message: "destroy action" }
+    @skill = Skill.find_by(id: params[:id])
+    @skill.destroy
+    render json: { message: "Skill deleted" }
   end
 end
