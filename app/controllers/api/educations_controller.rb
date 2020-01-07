@@ -14,8 +14,11 @@ def create
     university_name: params[:university_name],
     details: params[:details],
     )
-  @education.save
+  if @education.save
   render "show.json.jb"
+  else
+  render json: {errors}  
+  end
 end
 
 def show

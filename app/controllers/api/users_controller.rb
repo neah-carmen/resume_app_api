@@ -18,7 +18,8 @@ def create
     website: params[:website],
     resume: params[:resume],
     github: params[:github],
-    photo: params[:photo]
+    photo: params[:photo],
+    user_id: current_user.id
     )
   @user.save
   render "show.json.jb"
