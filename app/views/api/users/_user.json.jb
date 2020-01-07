@@ -12,8 +12,31 @@
   resume: user.resume,
   github: user.github,
   photo: user.photo,
-  experiences: user.experiences,
-  education: user.educations,
-  skills: user.skills,
-  capstone: user.capstones,
+  skills: user.skills.map do |skill|
+    { id: skill.id,
+      skill: skill.skill_name }
+  end,
+  experiences: user.experiences.map do |experience|
+    { id: experience.id,
+      job_title: experience.job_title,
+      company_name: experience.company_name,
+      start_date: experience.start_date,
+      end_date: experience.end_date,
+      details: experience.details }
+  end,
+  education: user.educations.map do |education|
+    { education: education.id,
+      degree: education.degree,
+      university_name: education.university_name,
+      start_date: education.start_date,
+      end_date: education.end_date,
+      details: education.details }
+  end,
+  capstone: user.capstones.map do |capstone|
+    { id: capstone.id,
+      name: capstone.name,
+      description: capstone.description,
+      url: capstone.url,
+      screenshot: capstone.url }
+  end,
 }
