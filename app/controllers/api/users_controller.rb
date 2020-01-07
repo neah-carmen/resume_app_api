@@ -18,11 +18,14 @@ def create
     website: params[:website],
     resume: params[:resume],
     github: params[:github],
-    photo: params[:photo],
-    user_id: current_user.id
+    photo: params[:photo]
     )
-  @user.save
+
+  if @user.save
   render "show.json.jb"
+  else
+  render json: {error: @user.errors.full_message}
+  end
 end
 
 def show
@@ -46,9 +49,11 @@ def update
     @user.github =  params[:github] || @user.github
     @user.photo = params[:photo] || @user.photo
 
-    @user.save
-
+    if @user.save
     render "show.json.jb"
+    else
+    render json: {error: @user.errors.full_message}
+    end
 
 end
 

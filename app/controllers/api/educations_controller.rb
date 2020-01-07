@@ -17,7 +17,7 @@ def create
   if @education.save
   render "show.json.jb"
   else
-  render json: {errors}  
+  render json: {error: @education.errors.full_message}  
   end
 end
 
@@ -36,9 +36,11 @@ def update
     @education.details = params[:details] || @education.details
     
 
-    @education.save
-
+    if @education.save
     render "show.json.jb"
+    else
+    render json: {error: @education.errors.full_message}  
+    end
 
 end
 
